@@ -62,7 +62,7 @@ const displaySigleCard = phoneId =>{
   const div = document.createElement('div')
   phoneDetail.innerHTML='';
   div.classList.add('card')
-  // div.classList.add('w-50')
+  div.classList.add('w-100')
   div.classList.add('mb-3')
   div.classList.add('shadow')
   div.classList.add('p-3')
