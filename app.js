@@ -23,14 +23,17 @@ const displayResult = phones =>{
     // console.log(phone)
 
     const div = document.createElement('div')
-    div.classList.add('col')
-    div.innerHTML=`
+  div.classList.add('col')
+  div.classList.add('mb-3')
+  div.classList.add('shadow')
+  div.classList.add('p-4')
+  div.innerHTML=`
     <div class="card h-100">
-                <img src="${phone.image}" class="card-img-top" alt="...">
+                <img src="${phone.image}" class="card-img-top w-75" alt="...">
                 <div class="card-body">
                   <h3 class="card-title">${phone.phone_name}</h3>
                   <h5 class="card-title fw-bold">${phone.brand}</5>
-                  <p class="card-text">${phone.slug}  additional content. This content is a little bit longer.</p>
+                  <p class="card-text">${phone.slug}</p>
                 </div>
                 <div class="card-footer bg-white">
                    <button onclick="detailByClick('${phone.slug}')" class="bg-secondary text-white border border-rounded w-100">See Detail</button>
@@ -57,9 +60,12 @@ const displaySigleCard = phoneId =>{
   console.log(phoneId)
   const phoneDetail = document.getElementById('phone-detaile')
   const div = document.createElement('div')
+  phoneDetail.innerHTML='';
   div.classList.add('card')
   div.classList.add('w-25')
   div.classList.add('mb-3')
+  div.classList.add('shadow')
+  div.classList.add('p-3')
   div.innerHTML =`
   <img src="${phoneId.image}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -70,5 +76,6 @@ const displaySigleCard = phoneId =>{
         </div>
   ` 
   phoneDetail.appendChild(div)
+  
 }
     
