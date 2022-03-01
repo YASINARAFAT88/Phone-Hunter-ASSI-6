@@ -1,3 +1,6 @@
+const displayCard = document.getElementById('display-card')
+
+const phoneDetail = document.getElementById('phone-detaile')
 const searchButton = () =>{
     const searchField = document.getElementById('search-field')
     const searchValue = searchField.value
@@ -16,13 +19,13 @@ const searchButton = () =>{
 // Display Result
 const displayResult = phones =>{
     const allPhone = phones.data.slice(0,20)
-    const displayCard = document.getElementById('display-card')
+    phoneDetail.textContent='';
     displayCard.textContent ='';
 
   allPhone.forEach(phone => {
-    // console.log(phone)
+  // console.log(phone)
 
-    const div = document.createElement('div')
+  const div = document.createElement('div')
   div.classList.add('col')
   div.classList.add('mb-3')
   div.classList.add('shadow')
@@ -58,9 +61,11 @@ const detailByClick = phoneId =>{
 
 const displaySigleCard = phoneId =>{
   console.log(phoneId)
-  const phoneDetail = document.getElementById('phone-detaile')
+  
+  
   const div = document.createElement('div')
   phoneDetail.innerHTML='';
+
   div.classList.add('card')
   div.classList.add('w-100')
   div.classList.add('mb-3')
