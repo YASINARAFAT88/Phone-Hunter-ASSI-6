@@ -4,8 +4,10 @@ const phoneDetail = document.getElementById('phone-detaile')
 const searchButton = () =>{
     const searchField = document.getElementById('search-field')
     const searchValue = searchField.value
-    console.log(searchValue)
-
+    // Error Handle Part 
+    // if(searchValue >= 0 || searchValue  <= 0 || searchValue == ''){
+    //   notFound.innerHTML=`Please input a phone Name`;
+    // }
     // Data Clear 
     searchField.value='';
     // Load Data 
@@ -13,9 +15,27 @@ const searchButton = () =>{
     // console.log(url)
     fetch(url)
     .then(res => res.json())
-    .then(phones => displayResult(phones))
+    .then(phones => {
+      console.log(phones.data == [0])
+      if(searchValue >= 0 || searchValue  <= 0 || searchValue == ''){
+        document.getElementById('not-number').style.display='block'
+        phoneDetail.textContent='';
+        displayCard.textContent ='';
+        document.getElementById('not-name').style.display='none';
+      }else if(phones.data == false){
+        document.getElementById('not-name').style.display='block';
+        document.getElementById('not-number').style.display='none';
+      }
+      else{
+        displayResult(phones)
+        document.getElementById('not-name').style.display='none';
+        document.getElementById('not-number').style.display='none';
+        
+      }
+    })
+  
 }
-
+// 
 // Display Result
 const displayResult = phones =>{
     const allPhone = phones.data.slice(0,20)
@@ -71,8 +91,8 @@ const displaySigleCard = phoneId =>{
   div.classList.add('shadow')
   div.classList.add('p-3')
   div.innerHTML =`
-  <img src="${phoneId.image}" class="card-img-top w-50 mx-auto" alt="...">
-          <div class="card-body">
+  <img src="${phoneId.image}" class="card-img-top w-25 mx-auto" alt="...">
+          <div class="card-body row row-cols-1 row-cols-md-2">
             <h3 class="card-title">${phoneId.name}</h3>
             <h5 class="card-title">${phoneId.brand}</h5>
             <p class="card-text">${phoneId.releaseDate}</p>
@@ -94,4 +114,5 @@ const displaySigleCard = phoneId =>{
   phoneDetail.appendChild(div)
   
 }
+
     
