@@ -36,7 +36,6 @@ const displayResult = phones =>{
                 <div class="card-body">
                   <h3 class="card-title">${phone.phone_name}</h3>
                   <h5 class="card-title fw-bold">${phone.brand}</5>
-                  <p class="card-text">${phone.slug}</p>
                 </div>
                 <div class="card-footer bg-white">
                    <button onclick="detailByClick('${phone.slug}')" class="bg-secondary text-white border border-rounded w-100 fw-bold">See Detail</button>
@@ -81,6 +80,14 @@ const displaySigleCard = phoneId =>{
             <p><span class="fw-bold">chipSet:</span> ${phoneId.mainFeatures.chipSet}</p>
             <p><span class="fw-bold">displaySize:</span> ${phoneId.mainFeatures.displaySize}</p>
             <p><span class="fw-bold">memory:</span> ${phoneId.mainFeatures.memory}</p>
+            <p><span class="fw-bold">sensors:</span> ${phoneId.mainFeatures.sensors}</p>
+
+            <h4 class="card-title text-primary">others features</h4>
+            <p><span class="fw-bold">Bluetooth:</span> ${phoneId.others.Bluetooth}</p>
+            <p><span class="fw-bold">GPS:</span> ${phoneId.others.GPS}</p>
+            <p><span class="fw-bold">USB:</span> ${phoneId.others.USB}</p>
+            <p><span class="fw-bold">WLAN:</span> ${phoneId.others.WLAN}</p>
+
           </div>
         </div>
   ` 
