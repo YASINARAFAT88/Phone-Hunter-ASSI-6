@@ -27,11 +27,12 @@ const displayResult = phones =>{
     <div class="card h-100">
                 <img src="${phone.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h3 class="card-title">${phone.phone_name}</h3>
+                  <h5 class="card-title fw-bold">${phone.brand}</5>
+                  <p class="card-text">${phone.slug}  additional content. This content is a little bit longer.</p>
                 </div>
                 <div class="card-footer bg-white">
-                   <button onclick="detailByClick()" class="bg-secondary text-white border border-rounded w-50" >See Detail</button>
+                   <button onclick="detailByClick()" class="bg-secondary text-white border border-rounded w-100" >See Detail</button>
                 </div>
               </div>
         `
