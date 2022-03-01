@@ -13,13 +13,12 @@ const searchButton = () =>{
     .then(phones => displayResult(phones))
 }
 
+// Display Result
 const displayResult = phones =>{
     const allPhone = phones.data
     const displayCard = document.getElementById('display-card')
     displayCard.textContent ='';
-  // if(phones == 0){
-    
-  // }
+
   allPhone.forEach(phone => {
     // console.log(phone)
 
@@ -43,12 +42,33 @@ const displayResult = phones =>{
     });
   }
 
+  // Load Button
 const detailByClick = phoneId =>{
   console.log('click by', phoneId);
   fetch(`https://openapi.programming-hero.com/api/phone/${phoneId}`)
 
   .then(res => res.json())
-  .then(data => console.log(data))
+  .then(data => displaySigleCard(data.data))
 }
-      
+
+// Single Result By Click Button
+
+const displaySigleCard = phoneId =>{
+  console.log(phoneId)
+  const phoneDetail = document.getElementById('phone-detaile')
+  const div = document.createElement('div')
+  div.classList.add('card')
+  div.classList.add('w-25')
+  div.classList.add('mb-3')
+  div.innerHTML =`
+  <img src="${phoneId.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">${phoneId.name}</h3>
+            <h5 class="card-title">${phoneId.brand}</h5>
+            <p class="card-text">${phoneId.slug}</p>
+          </div>
+        </div>
+  ` 
+  phoneDetail.appendChild(div)
+}
     
