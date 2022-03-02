@@ -4,19 +4,18 @@ const phoneDetail = document.getElementById('phone-detaile')
 const searchButton = () =>{
     const searchField = document.getElementById('search-field')
     const searchValue = searchField.value
-    // Error Handle Part 
-    // if(searchValue >= 0 || searchValue  <= 0 || searchValue == ''){
-    //   notFound.innerHTML=`Please input a phone Name`;
-    // }
-    // Data Clear 
+    
     searchField.value='';
+
     // Load Data 
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`
-    // console.log(url)
+
     fetch(url)
     .then(res => res.json())
     .then(phones => {
       console.log(phones.data == [0])
+
+      // Error Handlenig 
       if(searchValue >= 0 || searchValue  <= 0 || searchValue == ''){
         document.getElementById('not-number').style.display='block'
         phoneDetail.textContent='';
@@ -45,7 +44,6 @@ const displayResult = phones =>{
     displayCard.textContent ='';
 
   allPhone.forEach(phone => {
-  // console.log(phone)
 
   const div = document.createElement('div')
   div.classList.add('col')
