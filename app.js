@@ -25,6 +25,8 @@ const searchButton = () =>{
       }else if(phones.data == false){
         document.getElementById('not-name').style.display='block';
         document.getElementById('not-number').style.display='none';
+        phoneDetail.textContent='';
+        displayCard.textContent ='';
       }
       else{
         displayResult(phones)
